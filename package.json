@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "scripts": {
     "start": "node server.js",
-
     "heroku-postbuild": "ng build --prod"
   },
   "private": true,
@@ -22,6 +21,7 @@
     "core-js": "^2.5.4",
     "express": "^4.17.1",
     "firebase": "^6.4.2",
+    "path": "^0.12.7",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "tui-image-editor": "^3.7.0",
