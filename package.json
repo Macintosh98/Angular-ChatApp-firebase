@@ -2,13 +2,9 @@
   "name": "prodisc",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
     "start": "node server.js",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --aot --prod"
+
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
