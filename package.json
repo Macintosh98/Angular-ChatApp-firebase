@@ -2,8 +2,13 @@
   "name": "prodisc",
   "version": "0.0.0",
   "scripts": {
+    "ng": "ng",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
     "start": "node server.js",
-    "postinstall": "ng build --aot --prod"
+    "postinstall": "ng build --aot --prod",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
