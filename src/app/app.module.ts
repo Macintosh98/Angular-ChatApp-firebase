@@ -13,6 +13,8 @@ import { ReceivedMessageComponent } from './received-message/received-message.co
 import { SentMessageComponent } from './sent-message/sent-message.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContentComponent } from './content/content.component';
+import { AboutComponent } from './about/about.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 
 
@@ -26,6 +28,8 @@ import { ContentComponent } from './content/content.component';
     SentMessageComponent,
     NavbarComponent,
     ContentComponent,
+    AboutComponent,
+    ContactusComponent,
   ],
   imports: [
     BrowserModule,
