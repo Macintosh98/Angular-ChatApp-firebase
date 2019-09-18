@@ -5,7 +5,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'chat',
     component: ChatComponent,
 
   }
