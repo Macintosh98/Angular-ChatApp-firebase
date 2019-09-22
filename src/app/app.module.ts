@@ -15,7 +15,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ContentComponent } from './content/content.component';
 import { AboutComponent } from './about/about.component';
 import { ContactusComponent } from './contactus/contactus.component';
-
+import { FeatureComponent } from './feature/feature.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './auth/login/login.component';
+import { LogoutComponent } from './auth/logout/logout.component';
+import { PaintComponent } from './workspace/paint/paint.component';
+import { RegistrationComponent } from './auth/registration/registration.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 
@@ -30,13 +37,21 @@ import { ContactusComponent } from './contactus/contactus.component';
     ContentComponent,
     AboutComponent,
     ContactusComponent,
+    FeatureComponent,
+    HomeComponent,
+    RegistrationComponent,
+    LoginComponent,
+    LogoutComponent,
+    PaintComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
