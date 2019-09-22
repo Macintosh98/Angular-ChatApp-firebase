@@ -19,10 +19,10 @@ import { FeatureComponent } from './feature/feature.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
-import { PaintComponent } from './workspace/paint/paint.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -42,7 +42,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     RegistrationComponent,
     LoginComponent,
     LogoutComponent,
-    PaintComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

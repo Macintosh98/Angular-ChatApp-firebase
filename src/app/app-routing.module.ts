@@ -9,7 +9,7 @@ import { FeatureComponent } from './feature/feature.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
-import { PaintComponent } from './workspace/paint/paint.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -53,8 +53,8 @@ const routes: Routes = [
 
   },
   {
-    path: 'workspace',
-    component: PaintComponent,
+    path: 'profile',
+    component: ProfileComponent,
 
   }
 
