@@ -10,11 +10,13 @@ import { RegistrationComponent } from './auth/registration/registration.componen
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CreateProjectComponent } from './create-project/create-project.component';
+import { WorkspaceComponent } from './workspace/workspace.component';
 
 const routes: Routes = [
   {
-    path: 'chat',
-    component: ChatComponent,
+    path: 'workspace',
+    component: WorkspaceComponent,
 
   },
   {
@@ -55,6 +57,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+
+  },
+  {
+    path: 'project',
+    component: CreateProjectComponent,
 
   }
 

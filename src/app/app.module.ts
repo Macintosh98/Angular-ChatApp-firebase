@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -24,6 +24,13 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ProfileComponent } from './profile/profile.component';
 
+import { PaintComponent } from './workspace/paint/paint.component';
+import { PaintService } from './workspace/paint.service';
+import { CreateProjectComponent } from './create-project/create-project.component';
+import { TodoComponent } from './workspace/todo/todo.component';
+import { TodoListComponent } from './workspace/todo-list/todo-list.component';
+import { WorkspaceComponent } from './workspace/workspace.component';
+
 
 
 @NgModule({
@@ -42,7 +49,12 @@ import { ProfileComponent } from './profile/profile.component';
     RegistrationComponent,
     LoginComponent,
     LogoutComponent,
-    ProfileComponent
+    ProfileComponent,
+    PaintComponent,
+    CreateProjectComponent,
+    TodoComponent,
+    TodoListComponent,
+    WorkspaceComponent
   ],
   imports: [
     BrowserModule,
@@ -51,9 +63,10 @@ import { ProfileComponent } from './profile/profile.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [PaintService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

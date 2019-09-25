@@ -1,0 +1,27 @@
+
+<table class="table table-sm">
+        <thead>  
+          <th>Task</th>
+          <th></th>
+        </thead>
+        
+        <h1>TODO {{message}}</h1>
+        <ul>
+        <ng-container *ngFor="let todo of todoArray">
+            <li>
+            <td>{{todo.Task}}</td>  
+            <td>
+              <button type="button" class="btn btn-success" (click)="onDelete(todo.$key)">Done</button>
+              
+              
+            </td>
+            </li>
+        </ng-container>
+        </ul>
+        
+          
+            
+      <div class="alert alert-danger" *ngIf="showDeletedMessage">
+        Task Removed!!!
+      </div>
+      

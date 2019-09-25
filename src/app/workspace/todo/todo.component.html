@@ -1,0 +1,24 @@
+<h1>Prodisx Todo List!!!</h1>
+<br>
+<br>
+<div class="row">
+  <div class="col-md-2">
+    <form [formGroup]="this.todoService.form" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="$key">
+      <div class="form-group">
+        <label>My Task</label>
+        <input formControlName="Task" class="form-control">
+      </div>
+      
+    
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="To do">
+      </div>
+    </form>
+    <div class="alert alert-info"  *ngIf="showSuccessMessage">
+      Task Added!!!
+    </div>
+    <app-todo-list></app-todo-list>
+
+  </div>
+</div>
