@@ -8,6 +8,7 @@ import { TodoService } from '../todo.service';
 
 export class TodoListComponent implements OnInit 
 { 
+  message="";
   constructor(private todoService: TodoService) 
   {}
   

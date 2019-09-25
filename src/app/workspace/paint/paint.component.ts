@@ -15,6 +15,7 @@ import { Router , ActivatedRoute } from '@angular/router';
 export class PaintComponent implements OnInit {
 
   projectKey : any;
+  message:string ="hii";
 
   constructor(private paintSvc: PaintService,
              private elRef: ElementRef , 
