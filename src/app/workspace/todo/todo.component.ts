@@ -8,7 +8,7 @@ import { TodoService } from '../todo.service';
 
 export class TodoComponent implements OnInit 
 {
-  constructor(private todoService: TodoService) 
+  constructor(public todoService: TodoService) 
   { }
 
   submitted: boolean;
