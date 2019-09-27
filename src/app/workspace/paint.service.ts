@@ -4,7 +4,8 @@ import { AngularFireDatabase, snapshotChanges } from 'angularfire2/database'
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { stringify } from 'querystring';
 import { Observable, Observer } from 'rxjs';
-
+import { DataService } from '../services/data.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class PaintService {
@@ -27,8 +28,9 @@ export class PaintService {
 
   base64Image: any;
 
-  constructor(private db: AngularFireDatabase , )
+  constructor(private db: AngularFireDatabase , private data : DataService , private router: Router )
     {
+
     }
 
   initialize(mountPoint: HTMLElement , key) {
@@ -42,6 +44,12 @@ export class PaintService {
 
     this.projectKey = key
 
+    this.data.currentMessage$.subscribe(message => {
+      this.projectKey = key
+    })
+
+   this.data.sendMessage(key)
+
     this.CreateReference()
     this.SetToDefault()
     
@@ -50,7 +58,7 @@ export class PaintService {
       size : 5 ,
       shape : 'point'
     });
-
+    console.log('done')
   }
 
   CreateReference()
@@ -63,6 +71,7 @@ export class PaintService {
   
     const shapeRef = this.base.child(`attributes`);    
     shapeRef.on('value', s => {this.attributes = s.val()
+      console.log(this.attributes)
     });
 
     const freehandRef = this.base.child(`freehand`);    
@@ -75,9 +84,11 @@ export class PaintService {
       this.draw();
     });
 
-    const snapshotRef = this.base.child(`snapshot`).limitToFirst(1);    
+    const snapshotRef = this.base.child(`snapshot`);    
     snapshotRef.on('value', s => {this.mysnaps = s.val()
     });
+
+    this.restore()
   }
 
   SetToDefault()
@@ -100,6 +111,10 @@ export class PaintService {
     this.base.child(`status`).set({
       status : 0
     });
+    
+    // this.base.child(`snapshot`).set({
+    //   image : null
+    // });
   }
 
   Status( status : number)
@@ -260,20 +275,30 @@ export class PaintService {
     this.Attributes('white' , 5 ,  'freehand');
   }
 
+  delete()
+  { 
+    console.log('deleted')
+    this.db.database.ref('projects').child(this.projectKey).remove();
+    this.router.navigate(['home']) 
+  }
+
   takeSnapshot()
   {
       var image = this.canvas.toDataURL()
-      this.base.child(`snapshot`).push({
+      this.base.child(`snapshot`).set({
         image : image
       });
   }
 
   restore()
-  { 
-      let imageUrl = this.mysnaps['image']
-      this.getBase64ImageFromURL(imageUrl).subscribe(base64data => {
-        this.base64Image = 'data:image/jpg;base64,' + base64data;
-      });
+  {    
+      console.log("this is restore fun")
+      if (this.mysnaps)
+      {  let imageUrl = this.mysnaps['image']
+        this.getBase64ImageFromURL(imageUrl).subscribe(base64data => {
+          this.base64Image = 'data:image/jpg;base64,' + base64data;
+        });
+      }
   }
   
   getBase64ImageFromURL(url: string) 

@@ -1,39 +1,20 @@
-<section id="registration" class="projects-section">
+<section id="registration" class="projects-section" style="background-color:darkgrey;height: 500px">
 
-    <div>
-        <button type="button" class="btn btn-dark" (click)="Download()">Download</button>
+    <div class="row">
+            
+            <div class="column middle" style="background-color : white;">
+                <div class='container'>
+                    <h2 class="text-center">Sketch Board</h2>
+                    <canvas #mount id="canvas"></canvas>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary btn-sm" (click)="Eraser()">Eraser</button>
+                    <button type="button" class="btn btn-primary btn-sm" (click)="Download()">Download</button>
+                    <button type="button" class="btn btn-primary btn-sm" (click)="Upload()">Upload</button>
+                    <button type="button" class="btn btn-primary btn-sm" (click)="Delete()">Delete</button>
+                </div>           
+            </div>
+            
+            
     </div>
-
-    <div>
-        <button type="button" class="btn btn-dark" (click)="Upload()">Upload</button>
-    </div>
-    <div class='container'>
-        <h1 class="text-center">Sketch Board</h1>
-        <canvas #mount id="canvas"></canvas>
-    </div>
-
-    <div>
-        <button type="button" class="btn btn-secondary btn-sm" (click)="Eraser()">
-            <i class="fa fa-eraser" aria-hidden="true"></i>
-            Eraser
-        </button>
-    </div>
-
-    <div>
-        <button type="button" class="btn btn-dark" (click)="Clear()"></button>
-    </div>
-
-    <div class="d-flex justify-content-center">
-        <div class="btn btn-mdb-color btn-rounded float-left">
-          <span>Choose file</span>
-          <input type="file" id='file' (change)="Upload()">
-        </div>
-    </div>  
-    
-    <div>
-        <h1> Paint {{message}} </h1>
-    </div>
-</section>
-<section id="registration" class="projects-section">
-    <app-todo></app-todo>
 </section>
